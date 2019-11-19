@@ -1,0 +1,27 @@
+.login-box,
+.register-box {
+  width: 720px!important;
+  margin: 7% auto;
+  @media (max-width: map-get($grid-breakpoints, sm)) {
+    width: 90%;
+    margin-top: 20px;
+  }
+}
+.vl {
+    border-left: 2px solid black;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+  }
+.toolbar {
+    float:left;
+}
+.logo-login{
+  max-width: 250px!important;
+}
+.login-card-body{
+  background-color: #D5D5D5;
+}
+.pointer {cursor: pointer;}

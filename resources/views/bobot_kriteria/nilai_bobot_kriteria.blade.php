@@ -1,0 +1,203 @@
+@extends('layouts.app')
+
+@section('content')
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">BOBOT KRITERIA</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active">Bobot Kriteria</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+    <div class="card">
+      <!-- /.card-header -->
+      <div class="card-header">
+        <h3 class="m-0 text-dark"><strong>LANGKAH 1</strong>  MATRIK PERBANDINGAN BERPASANGAN</h3>
+      </div>
+      <div class="card-body">
+        <table id="example1" class="table table-bordered">
+          <thead>
+          <tr>
+            <th>Kriteria</th>
+            @foreach ($m_1 as $key => $krit)
+              <th>{{$key}}</th>
+            @endforeach
+          </tr>
+          </thead>
+          <tbody>
+          @foreach (array_keys($m_1) as $var1)
+            <tr>
+              <td>{{$var1}}</td>
+                @foreach (array_keys($m_1[$var1]) as $var2)
+                  @if ($m_1[$var1][$var2])
+                    <td data-href='/bobot_kriteria/{{$var1}},{{$var2}}/edit' class="clickable-row pointer bg-success">
+                      {{$m_1[$var1][$var2]}}
+                    </td>
+                    @else
+                    <td data-href='/bobot_kriteria/{{$var1}},{{$var2}}/edit' class="clickable-row pointer bg-danger">
+                      null
+                    </td>
+                  @endif
+                @endforeach
+            </tr>
+          @endforeach
+            <tr>
+              <td class="bg-secondary">Jumlah</td>
+                @foreach ($jum_m_1 as $var)
+                  <td class="bg-secondary">
+                    {{$var}}
+                  </td>
+                @endforeach
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    @if ($m_1_null == false)
+    <div class="card">
+      <div class="card-header">
+        <h3 class="m-0 text-dark"><strong>LANGKAH 2</strong>  MATRIK NILAI KRITERIA PROBLEM SOLVING</h3>
+      </div>
+      <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+          <th>Kriteria</th>
+            @foreach ($m_1 as $key => $krit)
+              <th>{{$key}}</th>
+            @endforeach
+            <th>Jumlah</th>
+            <th>Bobot</th>
+          </thead>
+          <tbody>
+          @foreach (array_keys($m_2) as $var1)
+            <tr>
+              <td>{{$var1}}</td>
+              @foreach (array_keys($m_2[$var1]) as $var2)
+              <td>{{$m_2[$var1][$var2]}}</td>
+              @if ($loop->last)
+              <td>{{$jum_m_2[$var1]}}</td>
+              <td>{{$bobot_m_2[$var1]}}</td>
+              @endif
+              @endforeach
+            </tr>
+          @endforeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3 class="m-0 text-dark"><strong>LANGKAH 3</strong>  MATRIK PENJUMLAHAN</h3>
+      </div>
+      <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+          <th>Kriteria</th>
+            @foreach ($m_3 as $key => $krit)
+              <th>{{$key}}</th>
+            @endforeach
+            <th>Jumlah</th>
+          </thead>
+          <tbody>
+          @foreach (array_keys($m_3) as $var1)
+            <tr>
+              <td>{{$var1}}</td>
+              @foreach (array_keys($m_3[$var1]) as $var2)
+              <td>{{$m_3[$var1][$var2]}}</td>
+              @if ($loop->last)
+              <td>{{$jum_m_3[$var1]}}</td>
+              @endif
+              @endforeach
+            </tr>
+          @endforeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3 class="m-0 text-dark"><strong>LANGKAH 4</strong>  PERHITUNGAN PROBLEM SOLVING</h3>
+      </div>
+      <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+          <th>Kriteria</th>
+            <th>Bobot</th>
+            <th>Jumlah</th>
+            <th>Hasil</th>
+          </thead>
+          <tbody>
+          @foreach (array_keys($m_4) as $var1)
+            <tr>
+              <td>{{$var1}}</td>
+              <td>{{$m_4[$var1]['bobot']}}</td>
+              <td>{{$m_4[$var1]['jumlah']}}</td>
+              <td>{{$hasil_m_4[$var1]}}</td>
+            </tr>
+          @endforeach
+          <tr>
+              <td colspan="3" class="text-center">Jumlah</td>
+              <td>{{$total_m_4}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3 class="m-0 text-dark"><strong>LANGKAH 5</strong>  KESIMPULAN</h3>
+      </div>
+      <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+          <th class="text-center" colspan="2">Keterangan</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lamda  λ Maks </td>
+              <td>{{$hasil['lamda']}}</td>
+            </tr>
+            <tr>
+              <td>n</td>
+              <td>{{$hasil['n']}}</td>
+            </tr>
+            <tr>
+              <td>MAKS</td>
+              <td>{{$hasil['maks']}}</td>
+            </tr>
+            <tr>
+              <td>CI</td>
+              <td>{{$hasil['ci']}}</td>
+            </tr>
+            <tr>
+              <td>CR</td>
+              <td>{{$hasil['cr']}}</td>
+              <td>{{$hasil['konsisten']}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    @endif
+@include ('includes.script')
+<script>
+  jQuery(document).ready(function($) {
+      $(".clickable-row").click(function() {
+          window.location = $(this).data("href");
+      });
+  });
+</script>
+@endsection
