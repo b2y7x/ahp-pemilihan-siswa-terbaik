@@ -49,10 +49,10 @@
                     <a href="/alternatif/{{$sis->nisn}}/edit">
                       <span class="btn badge badge-secondary" data-toggle="tooltip" data-placement="top" title="Ubah"><i class="fa fa-pencil"></i></span>
                     </a>                    
-                    <span class="btn badge badge-danger" onclick="event.preventDefault(); document.getElementById('delete-kriteria').submit();" data-toggle="tooltip" data-placement="top" title="Hapus"><i class="fa fa-trash"></i></span>
+                    <span class="btn badge badge-danger" onclick="event.preventDefault(); document.getElementById('delete-kriteria{{$sis->nisn}}').submit();" data-toggle="tooltip" data-placement="top" title="Hapus"><i class="fa fa-trash"></i></span>
                   </td>
                   
-                  <form id="delete-kriteria" action="/alternatif/{{$sis->nisn}}" method="post" style="display: none;">
+                  <form id="delete-kriteria{{$sis->nisn}}" action="/alternatif/{{$sis->nisn}}" method="post" style="display: none;">
                     @method('DELETE')
                     @csrf
                   </form>

@@ -27,17 +27,23 @@ class AlternatifController extends Controller
     public function store(Request $request){
         $this->validate($request,[
             'nisn' => 'required|unique:alternatif',
-            'nama' => 'required'
+            'nama' => 'required',
+            'jurusan' => 'required',
+            'kelas' => 'required'
          ]);
         $data = new Alternatif;
         $data->nisn = request('nisn');
         $data->nama = request('nama');
+        $data->jurusan = request('jurusan');
+        $data->kelas = request('kelas');
         $data->save();
-        foreach (request('nilai') as $key => $value) {
-            $data_nilai = new NilaiAlternatif;
-            $data_nilai->nisn = request('nisn');
-            $data_nilai->kode_sub_kriteria = $value;
-            $data_nilai->save();
+        if(isset($request->nilai)){
+            foreach (request('nilai') as $key => $value) {
+                $data_nilai = new NilaiAlternatif;
+                $data_nilai->nisn = request('nisn');
+                $data_nilai->kode_sub_kriteria = $value;
+                $data_nilai->save();
+            }
         }
         return redirect()->route('alternatif.index');
     }

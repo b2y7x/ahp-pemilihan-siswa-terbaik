@@ -41,6 +41,7 @@ class BobotKriteriaController extends Controller
         $m_4 = [];
         $hasil_m_4 = [];
         $jum_m_4 = 0;
+        $total_m_4 = 0;
 
         //matrix 1 MATRIK PERBANDINGAN BERPASANGAN
         $m_1_temp = $this->matrixLangkah1($id,$bobot);

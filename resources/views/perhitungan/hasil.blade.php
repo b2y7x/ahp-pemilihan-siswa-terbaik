@@ -25,6 +25,7 @@
     {{$error}}
   </div>
   @else
+  @if(isset($hasil_1['kriteria']) && isset($hasil_1['sub_kriteria']))
   <div class="card">
     <!-- /.card-header -->
     <div class="card-header">
@@ -221,6 +222,11 @@
       </div>
     </div>
   </div>
+  @else
+  <div class="alert alert-danger" role="alert">
+    Data Belum Lengkap !
+  </div>
+  @endif
   @endif
 </section>
 @include ('includes.script')

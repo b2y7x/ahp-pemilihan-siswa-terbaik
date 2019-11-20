@@ -43,6 +43,22 @@
                 <label for="exampleInputPassword1">Nama Siswa</label>
                 <input type="text" class="form-control" name="nama" id="exampleInputPassword1" placeholder="nama">
               </div>
+              <div class="form-group">
+                <label for="jurusan">Jurusan</label>
+                <select class="form-control" name="jurusan" id="jurusan">
+                  <option value="IPA">IPA</option>
+                  <option value="IPS">IPS</option>
+                  <option value="BAHASA">BAHASA</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="kelas">Kelas</label>
+                <select class="form-control" name="kelas" id="kelas">
+                  <option value="X">X</option>
+                  <option value="XI">XI</option>
+                  <option value="XII">XII</option>
+                </select>
+              </div>
             </div>
           </div>
           <div class="col-md-6">
