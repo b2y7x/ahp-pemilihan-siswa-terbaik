@@ -29,6 +29,6 @@ class Alternatif extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('alternatif');
     }
 }

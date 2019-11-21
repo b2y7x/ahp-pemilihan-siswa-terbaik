@@ -65,7 +65,7 @@
             <div class="card-body">
               @foreach($kriteria as $krit)
               <div class="form-group">
-                <label for="exampleInputEmail1">Bagaimana {{$krit->nama}} siswa ini ?</label>
+                <label for="exampleInputEmail1">{{$krit->nama}}</label>
                 <select class="form-control" name="nilai[{{$krit->kode}}]">
                   @foreach($krit->sub_kriteria as $sub)
                       <option value="{{$sub->kode}}">{{$sub->nama}}</option>

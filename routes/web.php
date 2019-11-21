@@ -24,6 +24,7 @@ Route::resource('sub_kriteria', 'SubKriteriaController',
 Route::get('/sub_kriteria/{kode_kriteria}/create','SubKriteriaController@create')->name('sub_kriteria.create');
 Route::get('/sub_kriteria/{kode_kriteria}/edit','SubKriteriaController@edit')->name('sub_kriteria.edit');
 Route::get('/hasil/{jurusan}/{kelas}','HasilController@hasil')->name('hasil.index');
+Route::get('/hasil/{jurusan}/{kelas}/cetak','HasilController@cetak')->name('hasil.cetak');
 Route::resource('alternatif', 'AlternatifController');
 Route::resource('bobot_kriteria', 'BobotKriteriaController');
 Route::resource('bobot_sub_kriteria', 'BobotSubKriteriaController');

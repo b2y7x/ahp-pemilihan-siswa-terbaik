@@ -82,6 +82,7 @@ class BobotKriteriaController extends Controller
             $hasil = $this->matrixLangkah5($hasil_m_4, $jum_m_4, $id);
         }
         $response = [
+                    'skala_kepentingan' => $this->matrikSkala(null),
                     'm_1' => $m_1, 
                     'jum_m_1' => $jum_m_1, 
                     'm_1_null' => $m_1_null,
@@ -161,6 +162,9 @@ class BobotKriteriaController extends Controller
         $m_skala[13] = 1.56;
         $m_skala[14] = 1.57;
         $m_skala[15] = 1.59;
+        if($n == null){
+            return $m_skala;
+        }
         return $m_skala[$n];
     }
     public function matrixLangkah1($id,$bobot){

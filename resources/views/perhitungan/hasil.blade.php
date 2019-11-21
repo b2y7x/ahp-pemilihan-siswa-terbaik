@@ -268,4 +268,10 @@
     });
   });
 </script>
+<script type="text/javascript">
+$(document).ready(function(){
+    // Append all paragraphs
+    $("#data-admin-2_length").append('<a  href="{{ Request::url() }}/cetak"> <button type="button" class="btn btn-outline-primary ml-3">Export ke Excel</button></a>');
+});
+</script>
 @endsection

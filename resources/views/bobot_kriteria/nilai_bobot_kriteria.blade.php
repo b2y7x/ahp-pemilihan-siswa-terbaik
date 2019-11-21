@@ -24,6 +24,31 @@
     <div class="card">
       <!-- /.card-header -->
       <div class="card-header">
+        <h3 class="m-0 text-dark"><strong>SKALA KEPENTINGAN</strong></h3>
+      </div>
+      <div class="card-body">
+        <table id="example1" class="table table-bordered">
+          <thead>
+          <tr>
+            @foreach ($skala_kepentingan as $key => $skl)
+              <th>{{$key}}</th>
+            @endforeach
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              @foreach ($skala_kepentingan as $skl)
+              <td>{{$skl}}</td>
+              @endforeach
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <div class="card">
+      <!-- /.card-header -->
+      <div class="card-header">
         <h3 class="m-0 text-dark"><strong>LANGKAH 1</strong>  MATRIK PERBANDINGAN BERPASANGAN</h3>
       </div>
       <div class="card-body">

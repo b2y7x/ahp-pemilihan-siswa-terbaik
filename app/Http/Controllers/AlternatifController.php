@@ -63,6 +63,8 @@ class AlternatifController extends Controller
         $data = Alternatif::where('nisn', request('nisn'))->first();
         $data->nisn = request('nisn');
         $data->nama = request('nama');
+        $data->jurusan = request('jurusan');
+        $data->kelas = request('kelas');
         $data->save();
         $delete =  NilaiAlternatif::where('nisn', request('nisn'))->delete();
         foreach (request('nilai') as $key => $value) {

@@ -5,10 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\NilaiAlternatif;
 use App\Alternatif;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\HasilExport;
 
 class HasilController extends BobotSubKriteriaController
 {
     public function hasil($jurusan, $kelas){
+        $data = $this->hitungHasil($jurusan, $kelas);
+        return view('perhitungan.hasil')
+        ->with($data);
+    }
+    public function kelas($jurusan){
+        return view('perhitungan.kelas')->with(['jurusan' => $jurusan]);
+    }
+    public function hitungHasil($jurusan, $kelas){
         $alternatif = Alternatif::with('nilai_alternatif.sub_kriteria')->where('jurusan', $jurusan)->where('kelas', $kelas)->get();
         $bobot_kriteria = $this->bobot_kriteria();
         $bobot_sub_kriteria = null;
@@ -62,17 +72,16 @@ class HasilController extends BobotSubKriteriaController
             $perangkingan[$key]['rangking'] = $n;
             $n++;
         }
-        return view('perhitungan.hasil')
-        ->with(
-            [
-                'nilai_sub_kriteria' => $m_0,
+        return ['nilai_sub_kriteria' => $m_0,
                 'hasil_1' => $m_1,
                 'hasil_2' => $m_2,
                 'nilai_alternatif' => $nilai_alternatif,
-                'perangkingan' => $perangkingan
-            ]);
+                'perangkingan' => $perangkingan];
     }
-    public function kelas($jurusan){
-        return view('perhitungan.kelas')->with(['jurusan' => $jurusan]);
+    public function cetak($jurusan, $kelas){
+        $data = $this->hasil($jurusan, $kelas);
+        $perangkingan = $data['perangkingan'];
+        $hasil_1 = $data['hasil_1'];
+        return (new HasilExport ($perangkingan, $hasil_1))->download('hasil-perangkingan.xlsx');
     }
 }

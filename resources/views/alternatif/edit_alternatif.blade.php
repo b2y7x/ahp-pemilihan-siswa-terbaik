@@ -44,13 +44,29 @@
                 <label for="exampleInputPassword1">Nama Siswa</label>
                 <input type="text" class="form-control" value="{{$alternatif->nama}}" name="nama" id="exampleInputPassword1" placeholder="nama">
               </div>
+              <div class="form-group">
+                <label for="jurusan">Jurusan</label>
+                <select class="form-control" name="jurusan" id="jurusan">
+                  <option value="IPA">IPA</option>
+                  <option value="IPS">IPS</option>
+                  <option value="BAHASA">BAHASA</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="kelas">Kelas</label>
+                <select class="form-control" name="kelas" id="kelas">
+                  <option value="X">X</option>
+                  <option value="XI">XI</option>
+                  <option value="XII">XII</option>
+                </select>
+              </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="card-body">
               @foreach($data as $krit)
               <div class="form-group">
-                <label for="exampleInputEmail1">Bagaimana {{$krit->nama}} siswa ini ?</label>
+                <label for="exampleInputEmail1">{{$krit->nama}}</label>
                 <select class="form-control" name="nilai[{{$krit->kode}}]">
                   @foreach($krit->sub_kriteria as $sub)
                       <option value="{{$sub->kode}}"
@@ -68,7 +84,7 @@
           </div>
         </div>
           <div class="card-footer">
-            <button type="submit" class="btn btn-primary float-right">Tambah</button>
+            <button type="submit" class="btn btn-primary float-right">Ubah</button>
           </div>
         </form>
       </div>

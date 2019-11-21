@@ -26,18 +26,23 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-md-6 col-sm-12">
-                  <table class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                      <th>NISN</th>
-                      <th>NAMA</th>
-                    </tr>
-                    </thead>
+                  <table class="table table-bordered">
                     <tbody>
                       <tr>
+                        <td>NISN</td>
                         <td>{{$data->nisn}}</td>
+                      </tr>
+                      <tr>
+                        <td>Nama</td>
                         <td>{{$data->nama}}</td>
-                        </form>
+                      </tr>
+                      <tr>
+                        <td>Jurusan</td>
+                        <td>{{$data->jurusan}}</td>
+                      </tr>
+                      <tr>
+                        <td>Kelas</td>
+                        <td>{{$data->kelas}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -72,7 +77,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
     // Append all paragraphs
-    $("#data-admin_length").append('<a  href="/alternatif/{{$data->nisn}}/edit" <button type="button" class="btn btn-outline-primary ml-3">UBAH</button></a>');
+    $("#data-admin_length").append('<a  href="/alternatif/{{$data->nisn}}/edit"> <button type="button" class="btn btn-outline-primary ml-3">UBAH</button></a>');
 });
 </script>
 @endsection
