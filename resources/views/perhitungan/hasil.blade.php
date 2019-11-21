@@ -52,7 +52,7 @@
                   <tr>
                     @foreach ($hasil_1['kriteria'] as $kriteria)
                     <td>
-                    {{$kriteria}}
+                    {{round($kriteria, 2)}}
                     </td>
                     @endforeach
                   </tr>
@@ -67,7 +67,7 @@
                   <tr>
                   @foreach ($xxx as $key => $sub)
                     <td>
-                      {{$sub}}
+                      {{round($sub, 2)}}
                     </td>
                   @endforeach
                   </tr>
@@ -104,7 +104,7 @@
                     <td class="bg-primary"></td>
                   @foreach ($xxx as $key3 => $sub)
                     <td>
-                      {{$sub}}
+                      {{round($sub, 2)}}
                     </td>
                   @endforeach
                   </tr>
@@ -178,7 +178,7 @@
                 @foreach ($alt['nilai'] as $key2 => $val)
                 @foreach ($val as $key3 => $val3)
                 <td>
-                {{$val3}}
+                {{round($val3, 2)}}
                 </td>
                 @endforeach
                 @endforeach
@@ -209,11 +209,11 @@
                 <td>{{$alt['nisn']}}</td>
                 @foreach ($alt['nilai'] as $val)
                 @foreach ($val as $val2)
-                <td>{{$val2}}</td>
+                <td>{{round($val2, 2)}}</td>
                 @endforeach
                 @endforeach
-                <td>{{$alt['hasil']}}</td>
-                <td>{{$alt['rangking']}}</td>
+                <td>{{round($alt['hasil'], 2)}}</td>
+                <td>{{round($alt['rangking'], 2)}}</td>
               </tr>
               @endforeach
             </tbody>

@@ -111,10 +111,10 @@
             <tr>
               <td>{{$var1}}</td>
               @foreach (array_keys($m_2[$var1]) as $var2)
-              <td>{{$m_2[$var1][$var2]}}</td>
+              <td>{{round($m_2[$var1][$var2], 2)}}</td>
               @if ($loop->last)
-              <td>{{$jum_m_2[$var1]}}</td>
-              <td>{{$bobot_m_2[$var1]}}</td>
+              <td>{{round($jum_m_2[$var1], 2)}}</td>
+              <td>{{round($bobot_m_2[$var1], 2)}}</td>
               @endif
               @endforeach
             </tr>
@@ -141,9 +141,9 @@
             <tr>
               <td>{{$var1}}</td>
               @foreach (array_keys($m_3[$var1]) as $var2)
-              <td>{{$m_3[$var1][$var2]}}</td>
+              <td>{{round($m_3[$var1][$var2], 2)}}</td>
               @if ($loop->last)
-              <td>{{$jum_m_3[$var1]}}</td>
+              <td>{{round($jum_m_3[$var1], 2)}}</td>
               @endif
               @endforeach
             </tr>
@@ -167,15 +167,15 @@
           <tbody>
           @foreach (array_keys($m_4) as $var1)
             <tr>
-              <td>{{$var1}}</td>
-              <td>{{$m_4[$var1]['bobot']}}</td>
-              <td>{{$m_4[$var1]['jumlah']}}</td>
-              <td>{{$hasil_m_4[$var1]}}</td>
+              <td>{{round($var1, 2)}}</td>
+              <td>{{round($m_4[$var1]['bobot'], 2)}}</td>
+              <td>{{round($m_4[$var1]['jumlah'], 2)}}</td>
+              <td>{{round($hasil_m_4[$var1], 2)}}</td>
             </tr>
           @endforeach
           <tr>
               <td colspan="3" class="text-center">Jumlah</td>
-              <td>{{$total_m_4}}</td>
+              <td>{{round($total_m_4, 2)}}</td>
             </tr>
           </tbody>
         </table>
@@ -193,23 +193,23 @@
           <tbody>
             <tr>
               <td>Lamda  λ Maks </td>
-              <td>{{$hasil['lamda']}}</td>
+              <td>{{round($hasil['lamda'], 2)}}</td>
             </tr>
             <tr>
               <td>n</td>
-              <td>{{$hasil['n']}}</td>
+              <td>{{round($hasil['n'], 2)}}</td>
             </tr>
             <tr>
               <td>MAKS</td>
-              <td>{{$hasil['maks']}}</td>
+              <td>{{round($hasil['maks'], 2)}}</td>
             </tr>
             <tr>
               <td>CI</td>
-              <td>{{$hasil['ci']}}</td>
+              <td>{{round($hasil['ci'], 2)}}</td>
             </tr>
             <tr>
               <td>CR</td>
-              <td>{{$hasil['cr']}}</td>
+              <td>{{round($hasil['cr'], 4)}}</td>
               <td>{{$hasil['konsisten']}}</td>
             </tr>
           </tbody>
